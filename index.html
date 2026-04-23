@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meine To-Do Liste</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <section class="welcome-card" id="welcomeCard">
+      <p class="welcome-eyebrow">Apple Style Productivity</p>
+      <h1 class="welcome-title">Organisiere deinen Tag<br>mit Fokus.</h1>
+      <p class="welcome-text">
+        Aufgaben, Unteraufgaben, mehrere Listen, Fortschritt und ein Premium-Design.
+      </p>
+
+      <div class="welcome-form">
+        <input type="text" id="nameInput" placeholder="Dein Name...">
+        <button class="welcome-button" onclick="saveProfileAndClose()">Los geht’s</button>
+      </div>
+    </section>
+
+    <div class="celebration-overlay" id="celebrationOverlay">
+      <div class="celebration-box">
+        <div class="celebration-emoji">🎉</div>
+        <h2>Geschafft!</h2>
+        <p>100% erledigt. Stark gemacht.</p>
+      </div>
+    </div>
+
+    <div class="confetti-layer" id="confettiLayer"></div>
+
+    <div class="app-window">
+      <div class="topbar">
+        <div>
+          <p class="date-label" id="currentDate">Heute</p>
+          <p class="time-label" id="currentTime">00:00</p>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="topbar-btn" onclick="toggleTheme()" id="themeToggle">🌙</button>
+        </div>
+      </div>
+
+      <div class="hero">
+        <p class="eyebrow">Produktivität</p>
+        <h1 id="mainTitle">Meine To-Do Liste</h1>
+        <p class="subheadline" id="subHeadline">Klar. Elegant. Fokus auf das, was wichtig ist.</p>
+      </div>
+
+      <div class="lists-bar">
+        <div class="list-selector-wrap">
+          <select id="listSelect"></select>
+        </div>
+        <button class="secondary-btn" onclick="createNewList()">Neue Liste</button>
+        <button class="secondary-btn danger-soft" onclick="deleteCurrentList()">Liste löschen</button>
+      </div>
+
+      <div class="overview-grid">
+        <div class="stat-box">
+          <span class="stat-label">Hauptaufgaben</span>
+          <span class="stat-value" id="taskCount">0</span>
+        </div>
+
+        <div class="stat-box">
+          <span class="stat-label">Unteraufgaben</span>
+          <span class="stat-value" id="subtaskCount">0</span>
+        </div>
+
+        <div class="stat-box">
+          <span class="stat-label">Erledigt</span>
+          <span class="stat-value" id="doneCount">0</span>
+        </div>
+      </div>
+
+      <div class="progress-card">
+        <div class="progress-header">
+          <span>Gesamtfortschritt</span>
+          <span id="progressText">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <div class="controls-row">
+        <input type="text" id="searchInput" placeholder="Suchen...">
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="all">Alle</button>
+          <button class="filter-btn" data-filter="open">Offen</button>
+          <button class="filter-btn" data-filter="done">Erledigt</button>
+        </div>
+      </div>
+
+      <div class="top-row">
+        <input type="text" id="taskInput" placeholder="Neue Hauptaufgabe...">
+        <button class="primary-btn" onclick="addTask()">Hinzufügen</button>
+      </div>
+
+      <div id="taskList"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
